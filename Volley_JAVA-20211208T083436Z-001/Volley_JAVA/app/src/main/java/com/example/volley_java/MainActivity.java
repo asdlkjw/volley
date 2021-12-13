@@ -52,15 +52,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void sendRequest() {
-        String url = "http://3.38.115.198:8081/image";
+//        String url = "http://3.38.115.198:8081/image";
 //        String url = "http://3.38.115.198:8081";
-//        String url = "https://www.google.com";
+        String url = "https://www.google.com";
 
         //StringRequest 선언.
         //요청객체는 보내는방식(GET,POST), URL, 응답성공리스너, 응답실패리스너 이렇게 4개의 파라미터를 전달할 수 있다.
         //화면에 결과를 표시할때 핸들러를 사용하지 않아도 됨.
         StringRequest request = new StringRequest(
-                Request.Method.POST,
+//                Request.Method.POST,
+                Request.Method.GET,
                 url,
                 new Response.Listener<String>() { //응답을 문자열로 받아옴(응답을 성공적으로 받았을 때 자동으로 호출되는 메소드.)
                     @Override
