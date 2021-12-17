@@ -14,6 +14,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import java.security.AllPermission;
 import java.util.HashMap;
 import java.util.Map;
 /*
@@ -52,16 +53,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void sendRequest() {
-//        String url = "http://3.38.115.198:8081/image";
-//        String url = "http://3.38.115.198:8081";
-        String url = "https://www.google.com";
+//        String url = "http://140.238.33.162:8080";
+        String url = "http://140.238.33.162:8080/register";
+//        String url = "https://www.google.com";
 
         //StringRequest 선언.
         //요청객체는 보내는방식(GET,POST), URL, 응답성공리스너, 응답실패리스너 이렇게 4개의 파라미터를 전달할 수 있다.
         //화면에 결과를 표시할때 핸들러를 사용하지 않아도 됨.
         StringRequest request = new StringRequest(
-//                Request.Method.POST,
-                Request.Method.GET,
+                Request.Method.POST,
+//                Request.Method.GET,
                 url,
                 new Response.Listener<String>() { //응답을 문자열로 받아옴(응답을 성공적으로 받았을 때 자동으로 호출되는 메소드.)
                     @Override
@@ -81,8 +82,14 @@ public class MainActivity extends AppCompatActivity {
             //POST방식을 이용할 때만 필요한 듯.
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
+                final int tmp = 1;
+                final float tmp1 = 32.154785f;
+                final float tmp2 = 127.552487f;
                 Map<String, String> params = new HashMap<String, String>();
-                params.put("num", "heo hyun jun babo post");
+                params.put("userid", "asdlkjw2@nate.com");
+                params.put("detect", String.format("%d", tmp));
+                params.put("latitude", String.format("%.6f", tmp1));
+                params.put("longitude", String.format("%.6f", tmp2));
                 return params;
             }
         };
